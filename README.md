@@ -1,4 +1,4 @@
-# Very basic Ionic Bluetooth example
+# A very basic Ionic (V1) Bluetooth example
 
 based on https://github.com/don/BluetoothSerial
 
