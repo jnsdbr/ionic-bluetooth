@@ -4,6 +4,7 @@ angular.module('IonicBT.controllers', [])
     $scope.btEnabled = false;
     $scope.connected = false;
     $scope.isLEDOn = false;
+    $scope.isLogging = false;
     $scope.macAddress = '20:13:06:13:41:02';
 
     $scope.enableBluetooth = function() {
@@ -76,6 +77,20 @@ angular.module('IonicBT.controllers', [])
         }
         else {
             $scope.log('Bluetooth not enabled or connected');
+        }
+    }
+
+    $scope.toggleLogging = function() {
+        if ($scope.btEnabled && $scope.connected)
+        {
+            $scope.isLogging = !$scope.isLogging;
+
+            if ($scope.isLogging) {
+                bluetoothSerial.write('3');
+            }
+            else {
+                bluetoothSerial.write('2');
+            }
         }
     }
 })
